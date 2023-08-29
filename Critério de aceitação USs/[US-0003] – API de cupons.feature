@@ -1,3 +1,4 @@
+# AUTOMATIZADO API
 # Deve listar todos os cupons cadastrado ou listar buscando por ID do cupom
 Contexto: usuário logado no Swagger com usuário: admin_ebac e senha: @admin!&b@c!2022
 Dado que um usuário dispare uma requisição GET para /wc/v3/coupons
