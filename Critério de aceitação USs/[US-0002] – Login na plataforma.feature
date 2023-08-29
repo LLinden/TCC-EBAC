@@ -1,3 +1,4 @@
+            # AUTOMATIZADO UI
             # Somente usuários ativos podem fazer login;
             Contexto: usuário ativo acessa a área de Login da loja EBAC-SHOP
             Dado que um usuário ativo acesse a página de Login
@@ -12,6 +13,7 @@
             E clicar em "Login"
             Então não deverá ser possível realizar login na plataforma
 
+            # AUTOMATIZADO UI
             # Deve exibir uma mensagem de erro caso o usuário erre o login e senha;
             Contexto: usuário ou senha inválidos são utilizados na tentativa de login
             Dado que o campo usuário seja peenchido com <usuario>
