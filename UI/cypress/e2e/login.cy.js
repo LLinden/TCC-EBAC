@@ -21,11 +21,19 @@ describe("Testes da [US-0002] - Login na plataforma", () => {
     pagePainel.validaMensagemBoasVindas();
   });
 
-  it.only("deve apresentar mensagem de validação com login com usuário inválido", () => {
-    //
+  it("deve apresentar mensagem de validação com login com usuário inválido", () => {
+    pageHome.acessaAreaLogin();
+    pageLogin.preencheUsuario(usuarios.usuarioInvalido);
+    pageLogin.preencheSenha(usuarios.senhaValida);
+    pageLogin.clicaLogin();
+    pageLogin.validaUsuarioInvalido();
   });
 
   it("deve apresentar mensagem de validação com login com senha inválida", () => {
-    //
+    pageHome.acessaAreaLogin();
+    pageLogin.preencheUsuario(usuarios.usuarioValido);
+    pageLogin.preencheSenha(usuarios.senhaInvalida);
+    pageLogin.clicaLogin();
+    pageLogin.validaSenhaInvalida();
   });
 });
