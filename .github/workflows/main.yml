@@ -13,27 +13,33 @@ jobs:
         working-directory: ./UI/
 
     steps:
-        - name: Checkout
+      - name: Configure NPM
+        working-directory: ./UI/
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "always-auth: true" >> .npmrc 
+        
+          - name: Checkout
           uses: actions/checkout@v3
           
-        - name: Setup node
+          - name: Setup node
           uses: actions/setup-node@v3
           with:
             node-version: 14
             cache: npm
 
-        - name: Install
+          - name: Install
           run: npm install
           working-directory: ./UI/
 
-        - name: Cypress run
+          - name: Cypress run
           run: npm t
           working-directory: ./UI/
 
-        - name: Rename Report
+          - name: Rename Report
           run: mv ./UI/mochawesome-report/mochawesome.html ./UI/mochawesome-report/index.html
 
-        - name: Publish Report
+          - name: Publish Report
           uses: peaceiris/actions-gh-pages@v3
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
