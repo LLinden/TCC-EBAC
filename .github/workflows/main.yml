@@ -29,14 +29,4 @@ jobs:
 
         - name: Cypress run
           run: npm t
-          working-directory: ./UI/
-
-        - name: Rename Report
-          run: mv ./UI/mochawesome-report/mochawesome.html ./UI/mochawesome-report/index.html
-
-        - name: Publish Report
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./UI/mochawesome-report
-      
+          working-directory: ./UI/      
