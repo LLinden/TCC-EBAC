@@ -8,19 +8,19 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./UI/
 
     steps:
-        - uses: actions/checkout@v3
         - name: Checkout
-          working-directory: ./UI/
-        
-        
-        - uses: actions/setup-node@v3
+          uses: actions/checkout@v3
+          
+        - name: Setup node
+          uses: actions/setup-node@v3
           with:
             node-version: 14
             cache: npm
-        - name: Setup node
-          working-directory: ./UI/
 
         - name: Install
           run: npm install
