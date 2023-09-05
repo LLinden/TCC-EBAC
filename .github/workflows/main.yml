@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./UI/
+        working-directory: UI
 
     steps:
       - name: Configure NPM
-        working-directory: ./UI/
+        working-directory: UI
         run: |
           echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
           echo "always-auth: true" >> .npmrc 
